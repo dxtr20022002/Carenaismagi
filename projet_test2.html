@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Car Rental</title>
+	<style type="text/css">	
+		html{
+			scroll-behavior: smooth;
+		}
+		#ban{
+			position: relative;
+			font-size: 20px;
+			right: 5%;
+		}
+		.fa {
+			
+  			padding: 8px;
+  			font-size: 20px;
+  			width: 20px;
+  			text-align: center;
+  			text-decoration: none;
+  			margin-right: 100px;
+  			border-radius: 50%;
+  			transition: all 0.6s ease-out;
+  			
+		}
+		.fa:hover {
+			background-color: red;
+			color: white;
+			transition: 0.5s;
+    		opacity: 1;
+		}
+
+		.fa-facebook {
+  			background: white;
+  			color: black;
+			}
+		.fa-twitter {
+  		background: white;
+  		color: black;
+			}
+
+		.fa-google {
+  		background: white;
+  		color: black;
+			}
+		
+		body{
+			overflow-x: hidden;
+		}
+		#logo img{
+			
+		}
+		#logo{
+			position: relative;
+			top: 20px;
+			left: 2%;
+			font-size: 20px;
+			font-family:cursive;
+
+		}
+
+		#menu{
+			position: relative;
+			left: 33%;
+			bottom: 35px;
+		}
+		#social{
+			position: relative;
+			left: 80%;
+			bottom: 65px;
+		}
+		#menu li{
+			font-family:Bahnschrift;
+			display: inline;
+			margin-right: 45px;
+		}
+
+		#social li{
+			position: relative;
+			text-decoration: none;
+			display: inline;
+			margin-right: 40px;
+			bottom: 25px;			
+		}
+		#header{
+			z-index: -1;
+			background-color: white;
+			
+			
+		}
+		#menu a{
+			color: black;
+			text-decoration: none;
+			border-radius: 15px;
+			transition: all 0.6s ease-out;
+			padding: 7px 7px 7px 7px;
+			cursor: pointer;
+			
+		}
+		#menu a:hover{
+			
+			transition: 0.6s;
+			background-color: red ;
+			color: white;
+			
+		}
+		#main img{
+			filter: brightness(40%);
+			position: absolute;
+			top: 100px;			
+			width: 100%;
+			height: 800px;
+			margin:-1px;
+   		padding:1px;
+   		right: 1px;
+   		z-index: 102;
+		}
+
+		.welcome{
+
+			position: absolute;
+			top: 200px;
+			z-index: 105;
+			color: white;
+			text-align: center;
+			transform: translateX(1800px);
+			font-size: 50px;
+			line-height: 140px;
+			font-family: courier;
+			
+			
+		}
+
+		.welcome span{
+			color: red;
+			font-style: italic;
+		}
+
+		.reveal2{
+			transform: translateX(1800px);
+			opacity: 0;
+			transition: 2s all ease;
+			z-index: 105;
+		}
+		.reveal2.active2{
+			transform: translateX(450px);
+			opacity: 1;
+			
+			z-index: 105;
+		}
+
+
+
+
+
+
+
+
+
+
+
+		#social a{
+			position: absolute;
+			top: 5px;
+		}
+		.contact{
+			font-size: 50px;
+			position: fixed;
+			top: 650px;
+			z-index: 105;
+			right: 1px;
+			color: white;
+			background: black;
+			width: 60px;
+			padding:10px 8px 10px 8px;
+			box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+			cursor: pointer;
+		}
+		.hide{
+			display: block;
+			position: fixed;
+			transform: translateY(510px) scale(0.2);
+			z-index: 104;
+			right: 90px;
+			color: white;
+			font-weight: 700;
+			border: 2px black solid;
+			padding: 8px;
+			border-radius: 10px 0px 10px 0px;
+			background: red;
+			transition: all 400ms ease-out;
+			opacity: 0;
+			
+		}
+		.contact:hover + .hide{
+			position: fixed;
+			display: block;
+			transition: 0.5s;
+			transform: translateY(450px) scale(1.0);
+			opacity: 1;
+			
+		}
+		.contact:hover{
+			background: black;
+			color: white;
+			transform: scale(1.09);
+		}
+
+		div#blur.active{
+			filter: blur(20px);
+
+		}
+				#contactin{
+				top: 0;
+				right: 70px;
+				width: 90%;
+				height: 400px;
+				margin: auto;
+				display: flex;
+				visibility: hidden;
+				flex-wrap: warp;
+				padding: 10px;
+				border-radius: 10px;
+				background: #fff;
+				box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+				z-index: 105;
+				position: fixed;
+				opacity: 0;
+				transition: 0.5s;
+			}
+			#contactin.active{
+				visibility: visible;
+				opacity: 1;
+				transition: 0.5s;
+				top: 185px;
+			}
+			 #contact-map{
+
+				width: 100%;
+				height: auto;
+				flex: 50%;
+
+			}
+			#contact-map iframe{
+
+				width: 100%;
+				height: 100%;
+				box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; 
+				
+
+			}
+			#contact-form{
+
+				width: 100%;
+				height: auto;
+				flex: 50%;
+				padding: 30px;
+				text-align: center;
+				margin-left: 20px;
+				
+			}
+			#contact-form h1{
+
+				margin-bottom:10px ;
+				position: relative;
+				top: -50px;
+				background-color: black;
+    			-webkit-background-clip: text;
+    			-moz-background-clip: text;
+    			background-clip: text;
+    			color: transparent;
+    			text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+    			font-weight: 3000;
+				
+			}
+			.contact-form-txt{
+				position: relative;
+				width: 100%;
+				height: 10px;
+				top: -40px;
+				color: #000;
+				border: 1px solid #bcbcbc;
+				border-radius: 50px;
+				outline: none;
+				margin-bottom: 20px;
+				padding: 15px;
+				box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; 
+				transition: transform 0.9s;
+			}
+			.contact-form-txt:focus{
+				transform: scale(1.09);
+			}
+			
+			#contact-form-txt: :placeholder{
+
+				color: #aaa;
+				box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; 
+
+			}
+
+			.contact-form-txtarea{
+				position: relative;
+				width: 100%;
+				height: 130px;
+				color: #000;
+				border: 1px solid #bcbcbc;
+				border-radius: 10px;
+				outline: none;
+				margin-bottom: 20px;
+				padding: 15px;
+				font-family: 'Source Sans Pro', sans-serif;
+				top: -40px;
+				box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; 
+				transition: transform 0.9s;
+				
+			}
+			.contact-form-txtarea:focus{
+				transform: scale(1.09);
+			}
+
+			.contact-form-txtarea: :placeholder{
+
+				color: #aaa;
+				width: 80%;
+				box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; 
+
+				}
+
+			.contact-form-btn{
+				position: relative;
+				top: -50px;
+				width: 100%;
+				border: none;
+				outline: none;
+				border-radius: 50px;
+				background: red ;
+				color: #fff;
+				text-transform: uppercase ;
+				padding: 10px;
+				cursor: pointer;
+				font-size: 18px;
+				position: relative;
+				left: 10px;
+				transition: transform 0.9s;
+				box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; 
+
+			}
+			.contact-form-btn:hover{
+				transform: scale(1.09);
+			}
+			.dismiss-btn a{
+				text-decoration: none;
+				cursor: pointer;
+				color: black;
+
+			}
+			.dismiss-btn{
+				position: relative;
+				top: -460px;
+				left: 320px;
+				font-weight: 600;
+				font-size: 40px;
+
+			}
+
+
+		
+
+
+.svg-wrapper {
+  position: relative;
+  top: 50%;
+  transform: translateY(500px);
+  margin: 0 auto;
+  width: 320px; 
+  z-index: 101; 
+}
+.shape {
+  stroke-dasharray: 140 540;
+  stroke-dashoffset: -474;
+  stroke-width: 8px;
+  fill: transparent;
+  stroke: red;
+  border-bottom: 5px solid black;
+  transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+
+}
+.svg-wrapper .text {
+  font-family: 'Roboto Condensed';
+  font-size: 22px;
+  line-height: 32px;
+  letter-spacing: 8px;
+  color: #fff;
+  top: -48px;
+  position: relative;
+  color: black;
+  left: 13%;
+}
+.svg-wrapper:hover .shape {
+  stroke-width: 2px;
+  stroke-dashoffset: 0;
+  stroke-dasharray: 760;
+}
+.reveal{
+  position: relative;
+  transform: translateY(500px);
+  opacity: 0;
+  transition: 1.5s all ease;
+}
+
+.reveal.active{
+  transform: translateY(800px);
+  opacity: 1;
+}
+.services{
+	position: relative;
+	top: 200px;
+	left: 250px;
+
+}
+
+.box-container{
+    
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    
+    width: 65%;
+}
+
+.box-container .box{
+    padding:2rem;
+    border-radius: .5rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; 
+    text-align: center;
+    transition: 0.5s ease-out;
+    
+}
+
+
+.box-container .box h3{
+    font-size: 2.2rem;
+    color:var(--black);
+    font-family: cursive;
+}
+
+.box-container .box p{
+    line-height: 1.8;
+    padding:1rem 0;
+    font-size: 1.2rem;
+    color:var(--light-color);
+}
+.box-container .box a{
+	text-decoration: none;
+	border: 1px solid black;
+	padding: 8px;
+	color: gray;
+	border-radius: 5px;
+}
+.box-container .box a:hover{
+	text-decoration: none;
+	border: 1px solid black;
+	padding: 8px;
+	color: gray;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.box-container .box{
+	transition: transform 0.5s ease-out;
+}
+.box-container .box .dismiss-btn1 a{
+	text-decoration: none;
+	border: none;
+	position: absolute;
+	right: -20px;
+	font-weight: 600;
+
+	font-size: 35px;
+}
+.box-container:hover .box{
+	opacity: 0.2;
+
+}
+.box-container .box:hover{
+	transform: scale(1.05);
+	z-index: 100;
+	box-shadow: rgba(50, 50, 93, 0.4) 0px 2px 5px -1px, rgba(0, 0, 0, 0.45) 0px 1px 3px -1px;
+	opacity: 1;
+}
+	
+
+
+	#container{/*position des cartes*/
+		position: absolute;		
+		display: flex;	
+		visibility: hidden;
+		justify-content: center;
+		flex-wrap: wrap;
+		opacity: 0;
+		transform: translateY(-270px) scale(0.2);
+		z-index: -5;
+		transition: 0.5s ease;
+		
+
+	}
+	#container.active{
+		position: relative;
+		top: 20px;
+		display: flex;
+		opacity: 1;
+		transform: translateY(0px) scale(1.0);
+		visibility: visible;
+		z-index: -5;
+		
+		
+		
+	}
+
+	.card{
+		background: white;
+		width: 270px;
+		margin: 10px;
+		border-radius: 15px;
+		transition: all 1s ease;
+		box-shadow: rgba(50, 50, 93, 0.4) 0px 2px 5px -1px, rgba(0, 0, 0, 0.45) 0px 1px 3px -1px; 
+
+	}
+
+	.card-image{
+		
+		height: 170px;
+		margin-bottom: 15px;
+		background-size:cover ;
+		border-radius: 15px 15px 0 0;
+	}
+
+	.car-normal{
+		background-image: url('https://static.lexpress.fr/medias_11821/w_2048,h_1146,c_crop,x_0,y_31/w_1000,h_563,c_fill,g_north/v1525078536/2017-le-nouveau-dacia-duster_6052566.jpg');
+	}
+	.car-sport{
+		background-image: url('https://journalauto.com/wp-content/uploads/2021/12/RS3-AV-1024x682.jpeg');
+	}
+	.car-luxe{
+		background-image: url('https://cdn-s-www.leprogres.fr/images/D9C306A3-A0BB-4DB7-8B60-7295C70038A6/NW_raw/conduire-ou-se-faire-conduire-telle-est-la-question-photo-mercedes-benz-1613744508.jpg');
+	}
+	.card h2{
+		padding: 10px;
+	}
+	.box-container .box .container .card p{
+		padding: 10px;
+		font-size: 1.05rem;
+	}
+	.box-container .box .container .card a{
+		background-color: red;
+		color: white;
+		padding: 15px 20px;
+		display: block;
+		text-align: center;
+		margin: 20px 50px;
+		text-decoration: none;
+	}
+	.card:hover{
+		background-color: white;
+		color: black;
+		transform: scale(1.03);
+		box-shadow: rgba(50, 50, 93, 0.3) 0px 2px 5px -1px, rgba(0, 0, 0, 0.45) 0px 1px 3px -1px; 
+		
+
+	}
+
+
+
+	.containera{
+			position: fixed;
+			top: -50px;
+			box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+			border-radius: 15px;
+			z-index: 105;
+		}
+		.about-section{
+			background: url("https://i.ibb.co/Ld2bbH8/main11.jpg") left;
+			background-repeat: no-repeat;
+			
+			background-size: 70%;
+			background-color: white;
+			overflow: hidden;
+			padding: 30px 0;
+		}
+
+		.inner-container{
+			width: 50%;
+			float: right;
+			background-color: white;
+			padding: 90px;
+			
+		}
+
+		.inner-container h1{
+			margin-bottom: 30px;
+			font-size: 30px;
+			font-weight: 900;
+		}
+
+		.containera .text{
+			font-size: 13px;
+			color: gray;
+			line-height: 30px;
+			text-align: justify;
+			margin-bottom: 40px;
+		}
+
+
+
+		.skills{
+			display: flex;
+			justify-content: space-between;
+			font-weight: 700;
+
+		}
+
+		.containera a{
+			position: absolute;
+			top: 25px;
+			right: 25px;
+			font-size: 35px;
+			cursor: pointer;
+
+		}
+
+		#containera{
+			visibility: hidden;
+			position: fixed;
+			opacity: 0;
+			transition: 0.5s;
+		}
+
+		#containera.active{
+			visibility: visible;
+			opacity: 1;
+			transition: 0.5s;
+			top: 140px;
+		}
+
+
+
+
+
+.reveal1{
+  position: relative;
+  transform: translateY(500px);
+  opacity: 0;
+  transition: 1.5s all ease;
+}
+
+.reveal1.active{
+  transform: translateY(650px);
+  opacity: 1;
+}
+
+#footer{
+	position: relative;
+	top: 1000px;
+}
+ .footer{
+            padding: 40px 0;
+            background-color: #fff;
+        }
+
+        .footer .social{
+            text-align: center;
+            padding-bottom: 25px;
+            color: #4b4c4d;   
+        }
+        .footer .social a{
+            font-size: 24px;
+            color: inherit;
+            
+            width: 40px;
+            height: 40px;
+            line-height: 38px;
+            display: inline-block;
+            text-align: center;
+            border-radius: 50%;
+            margin: 0 8px;
+            opacity: 0.75;
+        }
+        .footer .social a:hover {
+            opacity: 0.9;    
+        }
+        .footer ul{
+            margin-top: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 0;
+            text-align: center;
+        }
+        .footer ul li a{
+            color: inherit;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+        .footer ul li{
+            display: inline-block;
+            padding: 0 15px;
+        }
+        .footer ul li a:hover{
+            opacity: 1;
+        }
+        .footer .copyright{
+            margin-top: 15px;
+            text-align: center;
+            font-size: 13px;
+            color: #aaa;
+        }
+
+	</style>
+
+
+
+
+</head>
+<body >
+	<div id="blur">
+	<div id="header">
+		<div id="logo"><img src="https://carena.bolvo.com/wp-content/uploads/2019/05/logo.jpg"></div>
+		<div id="ban">
+			<ul id="menu">
+				<li><a href="">HOME</a></li>
+				<li><a href="glider3.html" target="_blank">CARS</a></li>
+				<li><a onclick="toggle3()">ABOUT US</a></li>
+				<li><a onclick="toggle()" >CONTACT US</a></li>
+				
+			</ul>
+		</div>
+		<div>
+			<ul id="social">
+				<li><a href="#" class="fa fa-facebook"></a></li>
+				<li><a href="#" class="fa fa-twitter"></a></li>
+				<li><a href="#" class="fa fa-google"></a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="main">
+		<img src="https://i.ibb.co/Ld2bbH8/main11.jpg">
+		<div class="welcome reveal2"><p >Welcome to<br>Our<br>Car <span>Rental</span> Website</p></div></div>
+	<div class="fa fa-whatsapp contact" id="contact" onclick="toggle()"><a href=""></a></div>
+	<div class="hide">Contact us</div>
+
+			
+			
+		
+		<div class="svg-wrapper reveal">
+  <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+    <rect class="shape" height="60" width="320" />
+    <div class="text">OUR <span>SERVICES</span></div>
+  </svg>
+		</div>
+		<div class="services">
+		<div class="box-container reveal1">
+			<div class="box">
+				<h3>CAR RENT</h3>
+        <p>WELCOME TO OUR CAR RENTING WEBISTE</p>
+        
+			</div>
+			<div class="box">
+				<h3>VARIOUS MODELS</h3>
+        <p>WE PROVIDE VARIOUS MODELS TO OUR CUSTOMERS</p>
+        <a class="btn" onclick="toggle1()"> read more</a>
+        <section class="container" id="container">
+        <div id="dismiss-btn1" class="dismiss-btn1"><a  id="dismiss-popup-btn1" class="dismiss-popup-btn1" onclick="toggle1()">&times;</a></div>
+	
+		<div class="card">
+
+			<div class="card-image car-normal"></div>
+			<h2>Normal Cars</h2>
+			<p>New Dacia Duster affirms its character of adventurer to accompany you in all your adventures and stands out as the emblematic Dacia family SUV.</p>
+			<a href="glider3.html#normalcar" target="_blank">Read More</a>
+		</div>
+
+		<div class="card">
+			
+			<div class="card-image car-sport"></div>
+			<h2>Sport Cars</h2>
+			<p>A still sharpened 5-cylinder and a new very sophisticated rear transmission, controllable at will, this is the program of this third generation of RS3.</p>
+			<a href="glider3.html#sportcar" target="_blank">Read More</a>
+		</div>
+
+		<div class="card">
+			
+			<div class="card-image car-luxe"></div>
+			<h2>Luxury Cars</h2>
+			<p>At Mercedes-Benz, luxury is like second nature, it is in its own way a symbol of luxury and power in its BENZ class.
+Welcome to Mercedesse</p>
+			<a href="glider3.html#luxcar" target="_blank">Read More</a>
+		</div>
+
+
+</section>
+			</div>
+			<div class="box">
+				<h3>24/7 SUPPORT</h3>
+        <p>WE PROVIDE 24/7 SUPPORT WITH OUR WELL KNOW TEAM</p>
+        
+			</div>
+			<div class="box">
+				<h3>PAYMENTS</h3>
+        <p>WE PROVIDE VARIOUS PAYMENT METHOD</p>
+        
+			</div>
+
+
+			
+		</div>
+		</div>
+		
+		
+	<div id="footer">
+		<section class="footer">
+
+    <div class="social">
+        
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-snapchat"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-facebook-f"></i></a>        
+</div>
+        
+      <ul class="list">
+          
+        <li>
+            <a href="#">Home</a>
+        </li>
+
+        <li>
+            <a href="#">Services</a>
+        </li>
+
+        <li>
+            <a href="#">About</a>
+        </li>
+
+        <li>
+            <a href="#">Terms</a>
+        </li>
+
+        <li>
+            <a href="#">Privacy Policy</a>
+        </li>
+
+      </ul> 
+
+      <p class="copyright">
+        ISMAGI @ 2022
+      </p>
+	</div>
+</section>
+</div>
+<div id="contactin" data-backdrop="static" data-keyboard="false">
+			<div id="contact-map">
+            		 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.676938959923!2d-6.888680284917525!3d33.94943633058849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76b9a870cdcd7%3A0x91b7937ed207afbb!2sISMAGI!5e0!3m2!1sfr!2sma!4v1648024208174!5m2!1sfr!2sma" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
+
+            	<div id="contact-form">
+            		<h1>CONTACT US</h1>
+            		<form>
+            			<input type="text" placeholder="FULL NAME"  class="contact-form-txt">
+            			<input type="email" placeholder="YOUR EMAIL" class="contact-form-txt">
+            			<textarea placeholder="Message" class="contact-form-txtarea"></textarea>
+            			<input type="Submit" name="Submit" class="contact-form-btn">
+            			<div class="dismiss-btn">
+            				<a  id="dismiss-popup-btn" onclick="toggle()">&times;</a>
+            			</div>
+            			
+            		
+            		</form>
+            	</div>
+            	
+		</div>
+
+		<div class="containera" id="containera">
+		<div class = "about-section">
+			<div class = "inner-container">
+			<h1> About Us </h1>
+			<a onclick="toggle3()">&times;</a>
+
+			<p class = "text">Lorem ipsum dolor sit amet consectetur adipisici Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<div class = "skills">
+					<span> Car Rental </span>
+					<span> Web design </span >
+					<span> Dealership</span>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<script type="text/javascript">
+		function reveal() {
+  var reveals = document.querySelectorAll(".reveal");
+
+  for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var elementTop = reveals[i].getBoundingClientRect().top;
+    var elementVisible = 200;
+
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.add("active");
+    } else {
+      reveals[i].classList.remove("active");
+    }
+  }
+}
+
+window.addEventListener("scroll", reveal);
+
+
+
+function reveal1() {
+  var reveals = document.querySelectorAll(".reveal1");
+
+  for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var elementTop = reveals[i].getBoundingClientRect().top;
+    var elementVisible = 450;
+
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.add("active");
+    } else {
+      reveals[i].classList.remove("active");
+    }
+  }
+}
+window.addEventListener("scroll", reveal1);
+
+
+function reveal2() {
+  var reveals = document.querySelectorAll(".reveal2");
+
+  for (var i = 0; i < reveals.length; i++) {
+    var elementTop = reveals[i].getBoundingClientRect().top;  
+
+    if (elementTop < 100) {
+      reveals[i].classList.add("active2");
+    } 
+  }
+}
+
+window.addEventListener("scroll", reveal2);
+
+
+
+
+window.addEventListener("scroll",function(){
+	var div = document.querySelector("contact");
+	div.classList.toggle("sticky",window.scrollY > 150)
+})
+
+
+function toggle(){
+	var blur = document.getElementById('blur');
+	blur.classList.toggle('active');
+	var contactin = document.getElementById('contactin');
+	contactin.classList.toggle('active');
+	
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.documentElement.scrollTop > 200) {
+    document.getElementById("contact").style.background = "white";
+    document.getElementById("contact").style.color = "black";
+
+    
+
+  } else {
+    document.getElementById("contact").style.background = "black";
+    document.getElementById("contact").style.color = "white";
+    
+  }
+}
+
+function toggle1(){
+	var container = document.getElementById('container');
+	container.classList.toggle('active');
+	
+}
+
+function toggle3(){
+	var blur = document.getElementById('blur');
+	blur.classList.toggle('active');
+	var containera = document.getElementById('containera');
+	containera.classList.toggle('active');
+	
+}
+
+
+
+	</script>
+</body>
+</html>
